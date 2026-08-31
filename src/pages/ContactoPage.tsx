@@ -9,7 +9,7 @@ import {
   Phone,
 } from 'lucide-react';
 import { whatsappLink, WHATSAPP_DISPLAY, IMAGES } from '@/lib/constants';
-import { supabase } from '@/lib/supabase';
+import { api } from '@/lib/api';
 
 type InquiryType = 'informe_pericial' | 'asesoria' | 'capacitacion' | 'arriendo_equipamiento' | 'otro';
 
@@ -33,9 +33,9 @@ export function ContactoPage() {
     const email = (formData.get('email') as string)?.trim();
     const message = (formData.get('message') as string)?.trim();
 
-    if (!name || name.length < 2) newErrors.name = 'Ingresa tu nombre completo';
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) newErrors.email = 'Ingresa un correo válido';
-    if (!message || message.length < 10) newErrors.message = 'Cuéntanos un poco más sobre tu consulta';
+    if (!name || name.length < 2 || name.length > 100) newErrors.name = 'Ingresa tu nombre completo';
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 255) newErrors.email = 'Ingresa un correo válido';
+    if (!message || message.length < 10 || message.length > 2000) newErrors.message = 'Cuéntanos un poco más sobre tu consulta';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -55,15 +55,10 @@ export function ContactoPage() {
     const inquiryType = formData.get('inquiry_type') as InquiryType;
     const message = (formData.get('message') as string).trim();
 
-    const { error } = await supabase.from('contact_submissions').insert({
-      name,
-      email,
-      phone,
-      inquiry_type: inquiryType,
-      message,
-    });
-
-    if (error) {
+    try {
+      await api.post('/contacto', { name, email, phone, inquiryType, message });
+    } catch (err) {
+      console.error('[contacto] error enviando formulario', err);
       setFormState('error');
       return;
     }
@@ -144,7 +139,7 @@ export function ContactoPage() {
                   </div>
                 )}
 
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} noValidate className="space-y-5">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-1.5">
                       Nombre completo <span className="text-red-500">*</span>
@@ -153,6 +148,7 @@ export function ContactoPage() {
                       type="text"
                       id="name"
                       name="name"
+                      maxLength={100}
                       disabled={formState === 'submitting'}
                       className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 disabled:opacity-60 ${
                         errors.name ? 'border-red-300 bg-red-50' : 'border-brand-grey bg-white focus:border-brand-blue'
@@ -171,6 +167,7 @@ export function ContactoPage() {
                         type="email"
                         id="email"
                         name="email"
+                        maxLength={255}
                         disabled={formState === 'submitting'}
                         className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 disabled:opacity-60 ${
                           errors.email ? 'border-red-300 bg-red-50' : 'border-brand-grey bg-white focus:border-brand-blue'
@@ -188,6 +185,7 @@ export function ContactoPage() {
                         type="tel"
                         id="phone"
                         name="phone"
+                        maxLength={20}
                         disabled={formState === 'submitting'}
                         className="w-full px-4 py-3 rounded-xl border border-brand-grey bg-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue disabled:opacity-60"
                         placeholder="+56 9 ..."
@@ -220,6 +218,7 @@ export function ContactoPage() {
                       id="message"
                       name="message"
                       rows={5}
+                      maxLength={2000}
                       disabled={formState === 'submitting'}
                       className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 disabled:opacity-60 resize-none ${
                         errors.message ? 'border-red-300 bg-red-50' : 'border-brand-grey bg-white focus:border-brand-blue'

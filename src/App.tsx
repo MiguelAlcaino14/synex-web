@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { Layout } from '@/components/Layout';
 import { HomePage } from '@/pages/HomePage';
 import { ServiciosPage } from '@/pages/ServiciosPage';
@@ -10,18 +11,20 @@ import { NotFoundPage } from '@/pages/NotFoundPage';
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/servicios" element={<ServiciosPage />} />
-          <Route path="/arriendo" element={<ArriendoPage />} />
-          <Route path="/nosotros" element={<NosotrosPage />} />
-          <Route path="/preguntas-frecuentes" element={<FAQPage />} />
-          <Route path="/contacto" element={<ContactoPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/servicios" element={<ServiciosPage />} />
+            <Route path="/arriendo" element={<ArriendoPage />} />
+            <Route path="/nosotros" element={<NosotrosPage />} />
+            <Route path="/preguntas-frecuentes" element={<FAQPage />} />
+            <Route path="/contacto" element={<ContactoPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 }

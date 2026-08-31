@@ -1,0 +1,27 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: synex
+      POSTGRES_PASSWORD: synex
+      POSTGRES_DB: synex
+    volumes:
+      - synex_pgdata:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+  api:
+    build: ./api
+    restart: unless-stopped
+    env_file:
+      - ./api/.env
+    environment:
+      DATABASE_URL: postgresql://synex:synex@postgres:5432/synex
+    depends_on:
+      - postgres
+    ports:
+      - '3000:3000'
+
+volumes:
+  synex_pgdata:

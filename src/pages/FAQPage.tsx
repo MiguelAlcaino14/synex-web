@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ChevronDown, MessageCircle } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 import { whatsappLink, IMAGES } from '@/lib/constants';
 import { CTASection } from '@/components/CTASection';
 
@@ -114,7 +115,7 @@ export function FAQPage() {
               rel="noopener noreferrer"
               className="btn-whatsapp"
             >
-              <MessageCircle className="w-5 h-5" />
+              <WhatsAppIcon className="w-5 h-5" />
               Consultar por WhatsApp
             </a>
           </div>

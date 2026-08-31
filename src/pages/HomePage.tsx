@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import {
-  MessageCircle,
   FileText,
   GraduationCap,
   Stethoscope,
@@ -14,6 +13,7 @@ import {
 } from 'lucide-react';
 import { whatsappLink, IMAGES } from '@/lib/constants';
 import { CTASection } from '@/components/CTASection';
+import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 
 const differentiators = [
   { icon: HeartPulse, title: 'Especialización en salud', desc: 'Enfoque dedicado al sector salud.' },
@@ -74,7 +74,7 @@ export function HomePage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-white bg-[#25D366] hover:bg-[#1da851] transition-all duration-300 shadow-lg hover:-translate-y-0.5"
               >
-                <MessageCircle className="w-4 h-4" />
+                <WhatsAppIcon className="w-4 h-4" />
                 Contactar por WhatsApp
               </a>
             </div>

@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, MessageCircle } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { NAV_LINKS, whatsappLink } from '@/lib/constants';
 import { Logo } from './Logo';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -58,7 +59,7 @@ export function Header() {
               rel="noopener noreferrer"
               className="btn-whatsapp text-sm px-4 py-2.5"
             >
-              <MessageCircle className="w-4 h-4" />
+              <WhatsAppIcon className="w-4 h-4" />
               WhatsApp
             </a>
           </div>
@@ -98,7 +99,7 @@ export function Header() {
               rel="noopener noreferrer"
               className="btn-whatsapp mt-3"
             >
-              <MessageCircle className="w-4 h-4" />
+              <WhatsAppIcon className="w-4 h-4" />
               Contactar por WhatsApp
             </a>
           </nav>

@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { whatsappLink, IMAGES } from '@/lib/constants';
 import { CTASection } from '@/components/CTASection';
+import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 
 const trainingLines = [
   'Gestión y administración de servicios de salud',
@@ -79,7 +80,7 @@ export function ServiciosPage() {
                 rel="noopener noreferrer"
                 className="btn-primary"
               >
-                <MessageCircle className="w-4 h-4" />
+                <WhatsAppIcon className="w-4 h-4" />
                 Consultar por informe pericial
               </a>
             </div>
@@ -149,7 +150,7 @@ export function ServiciosPage() {
                 rel="noopener noreferrer"
                 className="btn-primary"
               >
-                <MessageCircle className="w-4 h-4" />
+                <WhatsAppIcon className="w-4 h-4" />
                 Consultar capacitación
               </a>
             </div>

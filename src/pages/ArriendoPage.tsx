@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { whatsappLink, IMAGES } from '@/lib/constants';
 import { CTASection } from '@/components/CTASection';
+import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 
 const categories = [
   {
@@ -151,7 +152,7 @@ export function ArriendoPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-brand-blue bg-white hover:bg-brand-lightGrey transition-all duration-300 shadow-lg hover:-translate-y-0.5"
                 >
-                  <MessageCircle className="w-5 h-5" />
+                  <WhatsAppIcon className="w-5 h-5" />
                   Consultar arriendo de equipamiento
                 </a>
                 <Link

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
 import {
-  MessageCircle,
   Send,
   CheckCircle2,
   AlertCircle,
@@ -10,6 +9,7 @@ import {
 } from 'lucide-react';
 import { whatsappLink, WHATSAPP_DISPLAY, IMAGES } from '@/lib/constants';
 import { api } from '@/lib/api';
+import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 
 type InquiryType = 'informe_pericial' | 'asesoria' | 'capacitacion' | 'arriendo_equipamiento' | 'otro';
 
@@ -98,7 +98,7 @@ export function ContactoPage() {
                     rel="noopener noreferrer"
                     className="btn-whatsapp w-full"
                   >
-                    <MessageCircle className="w-5 h-5" />
+                    <WhatsAppIcon className="w-5 h-5" />
                     {WHATSAPP_DISPLAY}
                   </a>
                 </div>

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Stethoscope, Mail, MessageCircle } from 'lucide-react';
+import { Stethoscope, Mail } from 'lucide-react';
 import { NAV_LINKS, whatsappLink, WHATSAPP_DISPLAY } from '@/lib/constants';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 export function Footer() {
   return (
@@ -44,7 +45,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2.5 text-sm text-slate-400 hover:text-brand-green transition-colors"
               >
-                <MessageCircle className="w-4 h-4" />
+                <WhatsAppIcon className="w-4 h-4" />
                 {WHATSAPP_DISPLAY}
               </a>
               <Link

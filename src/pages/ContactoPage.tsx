@@ -43,7 +43,8 @@ export function ContactoPage() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
     if (!validate(formData)) return;
 
@@ -64,7 +65,7 @@ export function ContactoPage() {
     }
 
     setFormState('success');
-    e.currentTarget.reset();
+    form.reset();
   };
 
   return (

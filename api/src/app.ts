@@ -46,6 +46,10 @@ app.use((_req, res) => {
 });
 
 app.use((err: unknown, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
+  const status = (err as { status?: number }).status;
+  if (typeof status === 'number' && status >= 400 && status < 500) {
+    return res.status(status).json({ error: 'Solicitud inválida' });
+  }
   console.error('[error]', err);
   res.status(500).json({ error: 'Error interno' });
 });

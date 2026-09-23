@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { whatsappLink, IMAGES } from '@/lib/constants';
 import { CTASection } from '@/components/CTASection';
+import { EquipmentGallery } from '@/components/EquipmentGallery';
 import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 
 const differentiators = [
@@ -33,9 +34,10 @@ export function HomePage() {
           <img
             src={IMAGES.heroConsultation}
             alt="Consulta médica profesional"
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover opacity-60"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/90 via-brand-blue/80 to-brand-green/70" />
+          <div className="absolute inset-0 bg-brand-blue/80 lg:hidden" />
+          <div className="absolute inset-0 hidden lg:block bg-gradient-to-r from-brand-blue/90 via-brand-blue/70 to-brand-green/35" />
         </div>
 
         <div className="container-page relative z-10 py-20">
@@ -204,6 +206,8 @@ export function HomePage() {
           </div>
         </div>
       </section>
+
+      <EquipmentGallery />
 
       <CTASection
         title="¿Tienes una consulta?"

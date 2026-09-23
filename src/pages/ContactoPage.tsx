@@ -90,6 +90,16 @@ export function ContactoPage() {
             {/* Left: WhatsApp CTA */}
             <div className="lg:col-span-2">
               <div className="sticky top-28 space-y-6">
+                <div className="relative rounded-2xl overflow-hidden shadow-lg shadow-slate-900/5">
+                  <img
+                    src="/images/contacto-recepcion.jpg"
+                    alt="Recepción de una clínica con personal atendiendo"
+                    loading="lazy"
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-blue/20 to-transparent" />
+                </div>
+
                 <div className="p-8 rounded-2xl bg-brand-lightGrey border border-brand-grey/40">
                   <h2 className="text-2xl font-bold text-slate-800 mb-2">Escríbenos por WhatsApp</h2>
                   <p className="text-slate-500 mb-6">Es el canal más rápido para contactarnos.</p>

@@ -84,9 +84,25 @@ export function ServiciosPage() {
                 Consultar por informe pericial
               </a>
             </div>
-            <div className="order-1 lg:order-2 relative rounded-2xl overflow-hidden shadow-xl">
-              <img src={IMAGES.medicalForm} alt="Informe pericial médico" className="w-full h-[360px] object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-blue/20 to-transparent" />
+            <div className="order-1 lg:order-2 space-y-4">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                <img src={IMAGES.medicalForm} alt="Informe pericial médico" className="w-full h-[280px] object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-blue/20 to-transparent" />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <img
+                  src="/images/servicios-informe.jpg"
+                  alt="Médico escribiendo un informe en un portapapeles"
+                  loading="lazy"
+                  className="w-full h-36 object-cover rounded-2xl shadow-lg"
+                />
+                <img
+                  src="/images/servicios-formulario.jpg"
+                  alt="Formulario de informe médico"
+                  loading="lazy"
+                  className="w-full h-36 object-cover rounded-2xl shadow-lg"
+                />
+              </div>
             </div>
           </div>
         </div>

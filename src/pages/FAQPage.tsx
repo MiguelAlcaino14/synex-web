@@ -94,6 +94,16 @@ export function FAQPage() {
       {/* FAQ Accordion */}
       <section className="section-padding bg-white">
         <div className="container-page">
+          <div className="max-w-3xl mx-auto mb-10 relative rounded-2xl overflow-hidden shadow-xl">
+            <img
+              src="/images/faq-estetoscopio.jpg"
+              alt="Estetoscopio junto a un computador portátil sobre un escritorio"
+              loading="lazy"
+              className="w-full h-48 sm:h-60 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-blue/20 to-transparent" />
+          </div>
+
           <div className="max-w-3xl mx-auto space-y-3">
             {faqs.map((faq, i) => (
               <FAQItem

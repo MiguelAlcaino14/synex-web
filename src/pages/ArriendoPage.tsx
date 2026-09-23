@@ -64,6 +64,21 @@ export function ArriendoPage() {
               El arriendo de equipamiento permite acceder a tecnología médica de forma temporal, sin asumir el costo de adquisición. Una solución flexible para profesionales, consultas, clínicas, centros médicos e instituciones de salud.
             </p>
           </div>
+
+          <div className="max-w-4xl mx-auto mt-10 grid gap-4 sm:grid-cols-2">
+            <img
+              src="/images/arriendo-ecografo.jpg"
+              alt="Equipo de ecografía en una sala clínica"
+              loading="lazy"
+              className="w-full h-56 object-cover rounded-2xl shadow-lg"
+            />
+            <img
+              src="/images/arriendo-consola.jpg"
+              alt="Consola de un equipo de ecografía operada con las manos"
+              loading="lazy"
+              className="w-full h-56 object-cover rounded-2xl shadow-lg"
+            />
+          </div>
         </div>
       </section>
 

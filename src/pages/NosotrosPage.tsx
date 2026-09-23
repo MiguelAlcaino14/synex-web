@@ -80,6 +80,16 @@ export function NosotrosPage() {
               </div>
             </div>
           </div>
+
+          <div className="mt-14 relative rounded-2xl overflow-hidden shadow-xl">
+            <img
+              src="/images/nosotros-pasillo.jpg"
+              alt="Pasillo de un centro de salud con profesionales al fondo"
+              loading="lazy"
+              className="w-full h-64 lg:h-80 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-blue/20 to-transparent" />
+          </div>
         </div>
       </section>
 
@@ -122,21 +132,32 @@ export function NosotrosPage() {
             <p className="text-slate-500 max-w-2xl mx-auto">Nuestros servicios están pensados para una amplia variedad de actores del sector salud y relacionados.</p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {audience.map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={i}
-                  className="flex items-center gap-3 p-4 rounded-xl bg-brand-lightGrey border border-brand-grey/40 hover:border-brand-green/40 hover:bg-white transition-all duration-300"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center flex-shrink-0 shadow-sm">
-                    <Icon className="w-5 h-5 text-brand-blue" />
+          <div className="grid gap-10 lg:grid-cols-5 items-center">
+            <div className="lg:col-span-2 relative rounded-2xl overflow-hidden shadow-xl">
+              <img
+                src="/images/nosotros-equipo.jpg"
+                alt="Profesionales de la salud conversando en un centro médico"
+                loading="lazy"
+                className="w-full h-[320px] lg:h-[460px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-blue/20 to-transparent" />
+            </div>
+            <div className="lg:col-span-3 grid gap-4 sm:grid-cols-2">
+              {audience.map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={i}
+                    className="flex items-center gap-3 p-4 rounded-xl bg-brand-lightGrey border border-brand-grey/40 hover:border-brand-green/40 hover:bg-white transition-all duration-300"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center flex-shrink-0 shadow-sm">
+                      <Icon className="w-5 h-5 text-brand-blue" />
+                    </div>
+                    <span className="text-sm font-medium text-slate-700">{item.label}</span>
                   </div>
-                  <span className="text-sm font-medium text-slate-700">{item.label}</span>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
